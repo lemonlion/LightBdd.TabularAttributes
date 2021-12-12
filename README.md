@@ -11,6 +11,11 @@ Designed to be use with LightBdd Tables to allow for specifying input and output
 - InlineData gives long messy constructors with variables that then need to be fed in to your test
 - InlineData doesn't automatically convert data into input and output classes
 
+## Why have test inputs and outputs specified inline with attributes
+
+- Allows a reader to see at a glance what the inputs and outputs of a test are at compile time
+- Allows the reader to easily match up each input to each output at compile time
+
 ## Examples
 
 ### Standard
