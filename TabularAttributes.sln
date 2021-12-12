@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TabularAttributes.Examples", "TabularTableAttributesTests\TabularAttributes.Examples.csproj", "{8857EB8F-0A9A-40EF-91AA-8CD538573A68}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TabularAttributes", "TabularTableAttributes\TabularAttributes.csproj", "{2D204B1C-9014-4BF9-A855-CBDAE681E6E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8857EB8F-0A9A-40EF-91AA-8CD538573A68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8857EB8F-0A9A-40EF-91AA-8CD538573A68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8857EB8F-0A9A-40EF-91AA-8CD538573A68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8857EB8F-0A9A-40EF-91AA-8CD538573A68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D204B1C-9014-4BF9-A855-CBDAE681E6E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D204B1C-9014-4BF9-A855-CBDAE681E6E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D204B1C-9014-4BF9-A855-CBDAE681E6E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D204B1C-9014-4BF9-A855-CBDAE681E6E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE1AE799-4B18-44A6-9564-FE40908B2E13}
+	EndGlobalSection
+EndGlobal
