@@ -1,6 +1,6 @@
 # Tabular Attributes
 
-Designed to be use with LightBdd Tables to allow for specifying input and output data for tests, in a truth table format.
+Designed to be used with LightBdd Tables to allow for specifying input and output data for tests, in a truth table format.
 
 ## Differences between Tabular Attributes and InlineData
 
@@ -14,7 +14,7 @@ Designed to be use with LightBdd Tables to allow for specifying input and output
 ## Why have test inputs and outputs specified inline with attributes
 
 - Allows a reader to see at a glance what the inputs and outputs of a test are at compile time
-- Allows the reader to easily match up each input to each output at compile time
+- Allows a reader to easily match up each input to each expected output at compile time
 
 ## Examples
 
