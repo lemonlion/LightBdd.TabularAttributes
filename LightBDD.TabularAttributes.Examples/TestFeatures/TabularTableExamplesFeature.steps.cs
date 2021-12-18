@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using LightBDD.Framework.Parameters;
+using LightBDD.TabularAttributes.Examples.Models;
+using LightBDD.TabularAttributes.Examples.Services;
 using LightBDD.XUnit2;
-using TabularAttributes.Examples.Models;
-using TabularAttributes.Examples.Services;
 
 [assembly: LightBddScope]
-namespace TabularAttributes.Examples.TestFeatures;
+namespace LightBDD.TabularAttributes.Examples.TestFeatures;
 
 public partial class TabularTableExamplesFeature : FeatureFixture
 {

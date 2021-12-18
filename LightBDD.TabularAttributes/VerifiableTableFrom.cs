@@ -1,8 +1,8 @@
 ﻿using System.Runtime.CompilerServices;
 using LightBDD.Framework.Parameters;
-using TabularAttributes.Utils;
+using LightBDD.TabularAttributes.Utils;
 
-namespace TabularAttributes;
+namespace LightBDD.TabularAttributes;
 
 public class VerifiableTableFrom
 {

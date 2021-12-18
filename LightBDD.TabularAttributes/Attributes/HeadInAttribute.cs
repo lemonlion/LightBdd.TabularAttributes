@@ -1,4 +1,4 @@
-﻿namespace TabularAttributes.Attributes;
+﻿namespace LightBDD.TabularAttributes.Attributes;
 
 public class HeadInAttribute : TabularAttribute
 {

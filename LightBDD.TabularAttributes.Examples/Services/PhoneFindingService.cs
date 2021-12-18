@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using TabularAttributes.Examples.Models;
+using LightBDD.TabularAttributes.Examples.Models;
 
-namespace TabularAttributes.Examples.Services;
+namespace LightBDD.TabularAttributes.Examples.Services;
 
 public static class PhoneFindingService
 {

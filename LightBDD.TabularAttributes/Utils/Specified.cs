@@ -1,9 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using TabularAttributes.Attributes;
+using LightBDD.TabularAttributes.Attributes;
 
-namespace TabularAttributes.Utils;
+namespace LightBDD.TabularAttributes.Utils;
 
 internal static class Specified
 {
@@ -22,12 +22,12 @@ internal static class Specified
     {
         var values = GetValuesFrom<TValues>(stackTrace).ToArray();
         var headers = GetValuesFrom<THeaders>(stackTrace).FirstOrDefault()?.Select(x => x.ToString()).ToArray();
-        headers ??= Reflector<T>.GetPropNames().ToArray();
+        headers ??= ModelReflector<T>.GetPropNames().ToArray();
 
         var numberOfColumns = values.First().Length;
         var numberOfRows = values.Length;
 
-        var valuesByHeaderCollection = new List<T> { Reflector<T>.Construct() };
+        var valuesByHeaderCollection = new List<T> { ModelReflector<T>.Construct() };
         for (int rowNumber = 0; rowNumber < numberOfRows; rowNumber++)
         {
             for (int columnNumber = 0; columnNumber < numberOfColumns; columnNumber++)
@@ -35,10 +35,10 @@ internal static class Specified
                 var key = headers[columnNumber];
                 var value = values[rowNumber][columnNumber];
 
-                Reflector<T>.SetProp(valuesByHeaderCollection[rowNumber], key!, value);
+                ModelReflector<T>.SetProp(valuesByHeaderCollection[rowNumber], key!, value);
             }
             if (rowNumber != numberOfRows - 1)
-                valuesByHeaderCollection.Add(Reflector<T>.Construct());
+                valuesByHeaderCollection.Add(ModelReflector<T>.Construct());
         }
 
         return valuesByHeaderCollection;

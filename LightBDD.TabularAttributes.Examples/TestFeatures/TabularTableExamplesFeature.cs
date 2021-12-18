@@ -1,9 +1,9 @@
 using LightBDD.Framework.Scenarios;
+using LightBDD.TabularAttributes.Attributes;
+using LightBDD.TabularAttributes.Examples.Models;
 using LightBDD.XUnit2;
-using TabularAttributes.Attributes;
-using TabularAttributes.Examples.Models;
 
-namespace TabularAttributes.Examples.TestFeatures;
+namespace LightBDD.TabularAttributes.Examples.TestFeatures;
 
 public partial class TabularTableExamplesFeature
 {

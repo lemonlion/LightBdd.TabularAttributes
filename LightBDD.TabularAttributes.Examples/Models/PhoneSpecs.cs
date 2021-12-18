@@ -1,4 +1,4 @@
-namespace TabularAttributes.Examples.Models;
+namespace LightBDD.TabularAttributes.Examples.Models;
 
 public class PhoneSpecs
 {

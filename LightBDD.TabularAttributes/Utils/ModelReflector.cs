@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
+
 // ReSharper disable StaticMemberInGenericType
 
-namespace TabularAttributes.Utils;
+namespace LightBDD.TabularAttributes.Utils;
 
 internal static class ModelReflector<T>
 {

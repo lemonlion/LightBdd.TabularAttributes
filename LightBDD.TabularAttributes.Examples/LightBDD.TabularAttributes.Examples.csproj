@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TabularTableAttributes\TabularAttributes.csproj" />
+    <ProjectReference Include="..\LightBDD.TabularAttributes\LightBDD.TabularAttributes.csproj" />
   </ItemGroup>
 
 </Project>
