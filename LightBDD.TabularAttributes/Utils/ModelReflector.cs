@@ -15,9 +15,9 @@ internal static class ModelReflector<T>
         var typeT = typeof(T);
         ParameterlessConstructor = typeT.GetConstructor(Type.EmptyTypes);
         var properties = typeT.GetProperties(BindingFlags.Instance | BindingFlags.Public)
-            .Where(ø => ø.CanRead && ø.CanWrite)
-            .Where(ø => ø.GetGetMethod(true)!.IsPublic)
-            .Where(ø => ø.GetSetMethod(true)!.IsPublic)
+            .Where(x => x.CanRead && x.CanWrite)
+            .Where(x => x.GetGetMethod(true)!.IsPublic)
+            .Where(x => x.GetSetMethod(true)!.IsPublic)
             .ToArray();
 
         Setters = properties.ToDictionary(x => x.Name, x => x.GetSetMethod());
