@@ -1,4 +1,4 @@
-﻿namespace TabularAttributes;
+﻿namespace TabularAttributes.Attributes;
 
 public class HeadInAttribute : TabularAttribute
 {

@@ -1,8 +1,8 @@
-namespace TabularAttributes.Examples;
+namespace TabularAttributes.Examples.Models;
 
 public class PhoneSpecs
 {
-    public string Manufacturer { get; set; }
+    public string? Manufacturer { get; set; }
     public int ReleaseYear { get; set; }
     public int WeightInGrams { get; set; }
     public bool HasHeadphoneJack { get; set; }

@@ -1,4 +1,4 @@
-﻿namespace TabularAttributes;
+﻿namespace TabularAttributes.Attributes;
 
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
 public class TabularAttribute : Attribute
