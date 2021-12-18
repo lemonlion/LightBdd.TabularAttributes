@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
+// ReSharper disable StaticMemberInGenericType
 
 namespace TabularAttributes.Utils;
 
-internal static class Reflector<T>
+internal static class ModelReflector<T>
 {
     private static readonly ConstructorInfo? ParameterlessConstructor;
     private static readonly Dictionary<string, MethodInfo?> Setters;
     private static readonly Dictionary<int, string> NamesByIndex;
 
-    static Reflector()
+    static ModelReflector()
     {
         var typeT = typeof(T);
         ParameterlessConstructor = typeT.GetConstructor(Type.EmptyTypes);
@@ -25,11 +26,14 @@ internal static class Reflector<T>
     public static T Construct()
         => (T)ParameterlessConstructor!.Invoke(new object?[] { });
 
-    public static void SetProp(T item, string propertyName, object value, bool ignoreSpacesAndCase = true)
-        => (ignoreSpacesAndCase 
-            ? Setters.Single(x => x.Key.ToLower().Replace(" ", "") == propertyName.ToLower().Replace(" ", "")).Value 
-            : Setters[propertyName])?.Invoke(item, new []{ value });
-
     public static IEnumerable<string> GetPropNames()
         => NamesByIndex.Values;
+
+    public static void SetProp(T item, string propertyName, object value, bool ignoreSpacesAndCase = true)
+        => (ignoreSpacesAndCase 
+            ? Setters.Single(x => SanitizeName(x.Key) == SanitizeName(propertyName)).Value 
+            : Setters[propertyName])?.Invoke(item, new []{ value });
+
+    private static string SanitizeName(string name)
+        => name.Replace(" ", "").Replace("&", "and").ToLower();
 }
