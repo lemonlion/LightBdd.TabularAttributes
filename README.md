@@ -1,6 +1,6 @@
 # Tabular Attributes
 
-Designed to be used with LightBdd Tables to allow for specifying input and output data for tests, in a truth table format.
+Designed to be used with [LightBdd Tabular Parameters](https://github.com/LightBDD/LightBDD/wiki/Advanced-Step-Parameters#tabular-parameters) to allow for specifying input and output data for tests via attributes, in a truth table format.
 
 ## Differences between Tabular Attributes and InlineData
 
