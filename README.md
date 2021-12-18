@@ -11,7 +11,7 @@ Designed to be used with [LightBdd Tabular Parameters](https://github.com/LightB
 - InlineData gives long messy constructors with variables that then need to be fed in to your test
 - InlineData doesn't automatically convert data into input and output classes
 
-## Why have test inputs and outputs specified inline with attributes
+## Why have test inputs and outputs specified inline with attributes?
 
 - Allows a reader to see at a glance what the inputs and outputs of a test are at compile time
 - Allows a reader to easily match up each input to each expected output at compile time
