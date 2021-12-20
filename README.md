@@ -4,7 +4,7 @@ Designed to be used with [LightBdd Tabular Parameters](https://github.com/LightB
 
 ## Differences between Tabular Attributes and InlineData
 
-- InlineData doesn't work with LightBdd Tables
+- InlineData doesn't work with LightBdd tabular parameters
 - InlineData doesn't clearly differentiate between inputs and outputs
 - InlineData doesn't inline column names so it's difficult to know what value is referring to what variable at a glance
 - InlineData doesn't allow for column/variable names with spaces
