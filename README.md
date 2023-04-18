@@ -18,6 +18,28 @@ Designed to be used with [LightBdd Tabular Parameters](https://github.com/LightB
 
 ## Examples
 
+Given the following inputs:
+
+```c#
+public class PhoneSpecs
+{
+    public string? Manufacturer { get; set; }
+    public int ReleaseYear { get; set; }
+    public int WeightInGrams { get; set; }
+    public bool HasHeadphoneJack { get; set; }
+}
+```
+
+And following outputs:
+
+```c#
+public class PhoneResult
+{
+    public string? PhoneName { get; set; }
+    public bool IsStillAvailable { get; set; }
+}
+```
+
 ### Standard
 
 ```c#
