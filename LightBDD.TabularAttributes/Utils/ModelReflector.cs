@@ -15,7 +15,7 @@ internal static class ModelReflector<T>
         var typeT = typeof(T);
         ParameterlessConstructor = typeT.GetConstructor(Type.EmptyTypes);
         var properties = typeT.GetProperties(BindingFlags.Instance | BindingFlags.Public)
-            .Where(x => x.CanRead && x.CanWrite)
+            .Where(x => x is { CanRead: true, CanWrite: true })
             .Where(x => x.GetGetMethod(true)!.IsPublic)
             .Where(x => x.GetSetMethod(true)!.IsPublic)
             .ToArray();
@@ -24,17 +24,17 @@ internal static class ModelReflector<T>
         NamesByIndex = properties.Select((x, i) => (i, x.Name)).ToDictionary(x => x.i, x => x.Name);
     }
 
-    public static T Construct()
-        => (T)ParameterlessConstructor!.Invoke(new object?[] { });
+    public static T Construct() => (T)ParameterlessConstructor!.Invoke([]);
 
-    public static IEnumerable<string> GetPropNames()
-        => NamesByIndex.Values;
+    public static IEnumerable<string> GetPropNames() => NamesByIndex.Values;
 
     public static void SetProp(T item, string propertyName, object value, bool ignoreSpacesAndCase = true)
-        => (ignoreSpacesAndCase 
-            ? Setters.Single(x => SanitizeName(x.Key) == SanitizeName(propertyName)).Value 
-            : Setters[propertyName])?.Invoke(item, new []{ value });
+    {
+        if (ignoreSpacesAndCase)
+            Setters.Single(x => SanitizeName(x.Key) == SanitizeName(propertyName)).Value?.Invoke(item, [value]);
+        else
+            Setters[propertyName]?.Invoke(item, [value]);
+    }
 
-    private static string SanitizeName(string name)
-        => name.Replace(" ", "").Replace("&", "and").ToLower();
+    private static string SanitizeName(string name) => name.Replace(" ", "").Replace("&", "and").ToLower();
 }

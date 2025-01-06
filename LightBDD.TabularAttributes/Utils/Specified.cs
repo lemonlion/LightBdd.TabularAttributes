@@ -1,27 +1,23 @@
-﻿using System.Diagnostics;
-using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿using System.Reflection;
+using LightBDD.Core.ExecutionContext;
 using LightBDD.TabularAttributes.Attributes;
 
 namespace LightBDD.TabularAttributes.Utils;
 
 internal static class Specified
 {
-    [MethodImpl(MethodImplOptions.NoInlining)]
     public static IEnumerable<T> Inputs<T>()
-        => GetValuesFromAttributes<T, HeadInAttribute, InputsAttribute>(new StackTrace(1, false));
+        => GetValuesFromAttributes<T, HeadInAttribute, InputsAttribute>();
 
-        
-    [MethodImpl(MethodImplOptions.NoInlining)]
     public static IEnumerable<T> Outputs<T>()
-        => GetValuesFromAttributes<T, HeadOutAttribute, OutputsAttribute>(new StackTrace(1, false));
+        => GetValuesFromAttributes<T, HeadOutAttribute, OutputsAttribute>();
 
-    private static IEnumerable<T> GetValuesFromAttributes<T, THeaders, TValues>(StackTrace stackTrace)
+    private static IEnumerable<T> GetValuesFromAttributes<T, THeaders, TValues>()
         where THeaders : TabularAttribute
         where TValues : TabularAttribute
     {
-        var values = GetValuesFrom<TValues>(stackTrace).ToArray();
-        var headers = GetValuesFrom<THeaders>(stackTrace).FirstOrDefault()?.Select(x => x.ToString()).ToArray();
+        var values = GetValuesFrom<TValues>().ToArray();
+        var headers = GetValuesFrom<THeaders>().FirstOrDefault()?.Select(x => x.ToString()).ToArray();
         headers ??= ModelReflector<T>.GetPropNames().ToArray();
 
         var numberOfColumns = values.First().Length;
@@ -44,25 +40,11 @@ internal static class Specified
         return valuesByHeaderCollection;
     }
 
-    private static IEnumerable<object[]> GetValuesFrom<T>(StackTrace stackTrace) where T : TabularAttribute
+    private static IEnumerable<object[]> GetValuesFrom<T>() where T : TabularAttribute
     {
-        var method = GetMethodWithAttribute<T>(stackTrace);
+        var method = ScenarioExecutionContext.CurrentScenario.Descriptor?.MethodInfo;
         var inputAttributes = method?.GetCustomAttributes<T>();
-        foreach (var inputAttribute in inputAttributes ?? Enumerable.Empty<T>())
+        foreach (var inputAttribute in inputAttributes ?? [])
             yield return inputAttribute.Values;
-    }
-
-    private static MethodBase? GetMethodWithAttribute<T>(StackTrace stackTrace) where T : Attribute
-    {
-        for (int i = 0; i < stackTrace.FrameCount; i++)
-        {
-            var method = stackTrace.GetFrame(i)!.GetMethod();
-            var attributes = method?.GetCustomAttributes<T>();
-            var containsAttribute = attributes?.Any() ?? false;
-            if (containsAttribute)
-                return method;
-        }
-
-        return null;
     }
 }

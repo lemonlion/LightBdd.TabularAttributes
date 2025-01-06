@@ -1,12 +1,7 @@
 ﻿namespace LightBDD.TabularAttributes.Attributes;
 
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-public class TabularAttribute : Attribute
+public class TabularAttribute(params object[] values) : Attribute
 {
-    public object[] Values { get; init; }
-
-    public TabularAttribute(params object[] values)
-    {
-        Values = values;
-    }
+    public object[] Values { get; } = values;
 }

@@ -1,7 +1,3 @@
 ﻿namespace LightBDD.TabularAttributes.Attributes;
 
-public class HeadOutAttribute : TabularAttribute
-{
-    public HeadOutAttribute(params object[] values) : base(values)
-    { }
-}
+public class HeadOutAttribute(params object[] values) : TabularAttribute(values);
