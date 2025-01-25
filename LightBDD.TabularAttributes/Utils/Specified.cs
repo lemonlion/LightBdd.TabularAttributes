@@ -35,8 +35,11 @@ internal static class Specified
                 var key = headers[columnNumber];
                 var value = values[rowNumber][columnNumber];
 
-                var keyValue = $"\"{SanitizeName(key!)}\":{GetJsonValue(value)}";
-                keyValues.Add(keyValue);
+                if (value is not null)
+                {
+                    var keyValue = $"\"{SanitizeName(key!)}\":{GetJsonValue(value)}";
+                    keyValues.Add(keyValue);
+                }
             }
 
             var json = $"{{{string.Join(",", keyValues)}}}";
