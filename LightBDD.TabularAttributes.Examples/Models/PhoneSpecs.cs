@@ -1,9 +1,3 @@
 namespace LightBDD.TabularAttributes.Examples.Models;
 
-public class PhoneSpecs
-{
-    public string? Manufacturer { get; set; }
-    public int ReleaseYear { get; set; }
-    public int WeightInGrams { get; set; }
-    public bool HasHeadphoneJack { get; set; }
-}
+public record PhoneSpecs(string? Manufacturer, int ReleaseYear, int WeightInGrams, bool HasHeadphoneJack);

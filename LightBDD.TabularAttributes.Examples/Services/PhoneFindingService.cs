@@ -6,15 +6,15 @@ namespace LightBDD.TabularAttributes.Examples.Services;
 
 public static class PhoneFindingService
 {
-    private static readonly Dictionary<PhoneSpecs, PhoneResult> _phonesBySpecs = new()
+    private static readonly Dictionary<PhoneSpecs, PhoneResult> PhonesBySpecs = new()
     {
-        { new PhoneSpecs { Manufacturer = "Samsung", ReleaseYear = 2001, WeightInGrams = 191, HasHeadphoneJack = false }, new PhoneResult { PhoneName = "Galaxy S20", IsStillAvailable = true } },
-        { new PhoneSpecs { Manufacturer = "Samsung", ReleaseYear = 2000, WeightInGrams = 189, HasHeadphoneJack = true }, new PhoneResult { PhoneName = "Galaxy S10", IsStillAvailable = true } },
-        { new PhoneSpecs { Manufacturer = "Apple", ReleaseYear = 2020, WeightInGrams = 150, HasHeadphoneJack = false }, new PhoneResult { PhoneName = "Iphone 10", IsStillAvailable = false } },
-        { new PhoneSpecs { Manufacturer = "Apple", ReleaseYear = 1986, WeightInGrams = 190, HasHeadphoneJack = true }, new PhoneResult { PhoneName = "Iphone 2", IsStillAvailable = false } }
+        { new PhoneSpecs ("Samsung", 2001, 191, false), new PhoneResult ("Galaxy S20", true) },
+        { new PhoneSpecs ("Samsung", 2000, 189, true), new PhoneResult("Galaxy S10", true) },
+        { new PhoneSpecs ("Apple", 2020, 150, false), new PhoneResult("Iphone 10", false) },
+        { new PhoneSpecs ("Apple", 1986, 190, true), new PhoneResult("Iphone 2", false) }
     };
 
-    public static PhoneResult FindPhone(PhoneSpecs specs) => _phonesBySpecs.SingleOrDefault(x =>
+    public static PhoneResult FindPhone(PhoneSpecs specs) => PhonesBySpecs.SingleOrDefault(x =>
         x.Key.HasHeadphoneJack == specs.HasHeadphoneJack &&
         x.Key.ReleaseYear == specs.ReleaseYear &&
         x.Key.Manufacturer == specs.Manufacturer &&
