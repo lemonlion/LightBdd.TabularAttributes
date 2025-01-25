@@ -7,7 +7,7 @@
     <Description>Enables LightBDD tabular parameter tests to be driven by truth-table style attributes.
 For more informations on Tabular Parameters see: https://github.com/LightBDD/LightBDD/wiki/Advanced-Step-Parameters#tabular-parameters</Description>
     <PackageProjectUrl>https://github.com/lemonlion/LightBdd.TabularAttributes</PackageProjectUrl>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
